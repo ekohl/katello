@@ -9,32 +9,31 @@ module Katello
       end
 
       def set_client_user
-        if cert_present?
-          client_cert = CertificateExtract.new(cert_from_request)
-          uuid = client_cert.subject
-          User.current = CpConsumerUser.new do |cp_consumer|
-            cp_consumer.uuid = uuid
-            cp_consumer.login = uuid
-          end
-        end
-      end
+        return unless request.ssl?
 
-      def cert_present?
-        ssl_client_cert = cert_from_request
-        !ssl_client_cert.nil? && !ssl_client_cert.empty? && ssl_client_cert != "(null)"
+        uuid = rhsm_client_cert_subject || client_cert_subject
+        return unless uuid
+
+        User.current = CpConsumerUser.new do |cp_consumer|
+          cp_consumer.uuid = uuid
+          cp_consumer.login = uuid
+        end
       end
 
       # HTTP_X_RHSM_SSL_CLIENT_CERT - custom client cert header typically coming from a reverse
       #                               proxy on a Capsule passing RHSM traffic through in isolation
-      # HTTP_SSL_CLIENT_CERT - standard client cert header coming from direct interactions with the
-      #                        server
-      def cert_from_request
-        request.env['HTTP_X_RHSM_SSL_CLIENT_CERT'] ||
-        request.env['SSL_CLIENT_CERT'] ||
-        request.env['HTTP_SSL_CLIENT_CERT'] ||
-        ENV['HTTP_X_RHSM_SSL_CLIENT_CERT'] ||
-        ENV['SSL_CLIENT_CERT'] ||
-        ENV['HTTP_SSL_CLIENT_CERT']
+      def rhsm_client_cert_subject
+        ssl_client_cert = request.env['HTTP_X_RHSM_SSL_CLIENT_CERT']
+        return unless ssl_client_cert.nil? && !ssl_client_cert.empty? && ssl_client_cert != "(null)"
+
+        CertificateExtract.new(ssl_client_cert).subject
+      end
+
+      def client_cert_subject
+        cert = Foreman::ClientCertificate.new(request: request)
+        return unless cert.verified?
+
+        cert.subject
       end
 
       def add_candlepin_version_header
