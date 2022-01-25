@@ -1,5 +1,4 @@
 require 'active_support'
-require "#{Katello::Engine.root}/app/services/cert/rhsm_client.rb"
 
 module Katello
   module Authentication
@@ -11,8 +10,8 @@ module Katello
 
       def set_client_user
         if cert_present?
-          client_cert = ::Cert::RhsmClient.new(cert_from_request)
-          uuid = client_cert.uuid
+          client_cert = CertificateExtract.new(cert_from_request)
+          uuid = client_cert.subject
           User.current = CpConsumerUser.new do |cp_consumer|
             cp_consumer.uuid = uuid
             cp_consumer.login = uuid
