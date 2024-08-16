@@ -31,7 +31,6 @@ angular.module('Bastion.content-hosts').controller('ContentHostModuleStreamsCont
         $scope.moduleStreamsNutupane.primaryOnly = true;
         $scope.table = $scope.moduleStreamsNutupane.table;
 
-        $scope.remoteExecutionPresent = BastionConfig.remoteExecutionPresent;
         $scope.moduleStreamActionFormValues = {
             authenticityToken: $window.AUTH_TOKEN.replace(/&quot;/g, ''),
             remoteAction: 'module_stream_action'

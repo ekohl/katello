@@ -38,7 +38,6 @@ angular.module('Bastion.content-hosts').controller('ContentHostPackagesControlle
         };
 
         $scope.working = false;
-        $scope.remoteExecutionPresent = BastionConfig.remoteExecutionPresent;
         $scope.packageActionFormValues = {
             authenticityToken: $window.AUTH_TOKEN.replace(/&quot;/g, '')
         };

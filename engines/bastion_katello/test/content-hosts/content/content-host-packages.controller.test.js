@@ -58,7 +58,6 @@ describe('Controller: ContentHostPackagesController', function() {
     });
 
     it("performs a package update", function() {
-        $scope.remoteExecutionPresent = true;
         $scope.performPackageAction('packageUpdate', 'foo');
         expect($scope.packageActionFormValues.package).toBe('foo');
         expect($scope.packageActionFormValues.remoteAction).toBe('packageUpdate');
@@ -67,7 +66,6 @@ describe('Controller: ContentHostPackagesController', function() {
     });
 
     it("performs a package update with multiple packages", function() {
-        $scope.remoteExecutionPresent = true;
         $scope.performPackageAction('packageUpdate', 'foo bar');
         expect($scope.packageActionFormValues.package).toBe('foo bar');
         expect($scope.packageActionFormValues.remoteAction).toBe('packageUpdate');
@@ -76,7 +74,6 @@ describe('Controller: ContentHostPackagesController', function() {
     });
 
     it("performs a package group install", function() {
-        $scope.remoteExecutionPresent = true;
         $scope.performPackageAction('groupInstall', 'bigGroup');
         expect($scope.packageActionFormValues.package).toBe('bigGroup');
         expect($scope.packageActionFormValues.remoteAction).toBe('groupInstall');
@@ -86,7 +83,6 @@ describe('Controller: ContentHostPackagesController', function() {
 
     it("provides a way to upgrade all packages via remoteExecution", function() {
         // Removed the test to update all packages because this one now covers it with REX being the only way
-        $scope.remoteExecutionPresent = true;
         spyOn(HostPackage, "updateAll");
         $scope.updateAll();
         expect(HostPackage.updateAll).not.toHaveBeenCalled();
@@ -97,7 +93,6 @@ describe('Controller: ContentHostPackagesController', function() {
     });
 
     it("performs a package install via remoteExecution", function() {
-        $scope.remoteExecutionPresent = true;
         spyOn(HostPackage, 'install');
         $scope.performPackageAction('packageInstall', 'foo, bar, baz');
         expect(HostPackage.install).not.toHaveBeenCalled();

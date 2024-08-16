@@ -42,7 +42,7 @@
                 Perform
               </button>
               <button uib-dropdown-toggle class="btn btn-default"
-                      ng-hide="!remoteExecutionPresent || denied('edit_hosts', host)"
+                      ng-hide="denied('edit_hosts', host)"
                       ng-disabled="working || packageAction.term === undefined || packageAction.term.length === 0"
                       type="button" id="use-remote-execution">
                 <span class="caret"></span>
@@ -58,7 +58,7 @@
         <div class="form-group">
           <button class="btn btn-default" type="button"
                   translate
-                  ng-disabled="working || !remoteExecutionPresent"
+                  ng-disabled="working"
                   ng-click="updateAll()">
             Update All Packages
           </button>

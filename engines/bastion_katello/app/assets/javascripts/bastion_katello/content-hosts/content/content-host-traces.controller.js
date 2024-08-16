@@ -37,8 +37,6 @@ angular.module('Bastion.content-hosts').controller('ContentHostTracesController'
                 item.helper.indexOf(searchText) >= 0;
         };
 
-        $scope.remoteExecutionPresent = BastionConfig.remoteExecutionPresent;
-
         $scope.rebootRequired = function() {
             return ContentHostsHelper.rebootRequired($scope.table.getSelected());
         };

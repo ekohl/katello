@@ -56,7 +56,6 @@ describe('Controller: ContentHostsBulkPackagesModalController', function() {
             contentType: 'package'
         };
 
-        $scope.remoteExecutionPresent = true;
         spyOn(HostBulkAction, 'installContent');
         $scope.performContentAction();
 
@@ -70,7 +69,6 @@ describe('Controller: ContentHostsBulkPackagesModalController', function() {
             contentType: 'package',
         };
 
-        $scope.remoteExecutionPresent = true;
         spyOn(HostBulkAction, 'updateContent');
         $scope.performContentAction();
 
@@ -84,7 +82,6 @@ describe('Controller: ContentHostsBulkPackagesModalController', function() {
             contentType: 'package',
         };
 
-        $scope.remoteExecutionPresent = true;
         spyOn(HostBulkAction, 'removeContent');
         $scope.performContentAction();
 
@@ -98,7 +95,6 @@ describe('Controller: ContentHostsBulkPackagesModalController', function() {
             contentType: 'package_group'
         };
 
-        $scope.remoteExecutionPresent = true;
         spyOn(HostBulkAction, 'installContent');
         $scope.performContentAction();
 
@@ -112,7 +108,6 @@ describe('Controller: ContentHostsBulkPackagesModalController', function() {
             contentType: 'package_group'
         };
 
-        $scope.remoteExecutionPresent = true;
         spyOn(HostBulkAction, 'updateContent');
         $scope.performContentAction();
 
@@ -126,7 +121,6 @@ describe('Controller: ContentHostsBulkPackagesModalController', function() {
             contentType: 'package_group'
         };
 
-        $scope.remoteExecutionPresent = true;
         spyOn(HostBulkAction, 'removeContent');
         $scope.performContentAction();
 

@@ -22,7 +22,6 @@ angular.module('Bastion.content-hosts').controller('ContentHostPackagesApplicabl
         // Labels so breadcrumb strings can be translated
         $scope.label = translate('Applicable Packages');
 
-        $scope.remoteExecutionPresent = BastionConfig.remoteExecutionPresent;
         $scope.hostToolingEnabled = BastionConfig.hostToolingEnabled;
 
         $scope.getSelectedPackages = function () {

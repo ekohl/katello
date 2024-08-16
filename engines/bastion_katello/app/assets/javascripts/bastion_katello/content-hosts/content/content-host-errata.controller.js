@@ -45,7 +45,6 @@ angular.module('Bastion.content-hosts').controller('ContentHostErrataController'
                 item.title.indexOf(searchText) >= 0;
         };
 
-        $scope.remoteExecutionPresent = BastionConfig.remoteExecutionPresent;
         $scope.hostToolingEnabled = BastionConfig.hostToolingEnabled;
         $scope.errataActionFormValues = {
             authenticityToken: $window.AUTH_TOKEN.replace(/&quot;/g, '')

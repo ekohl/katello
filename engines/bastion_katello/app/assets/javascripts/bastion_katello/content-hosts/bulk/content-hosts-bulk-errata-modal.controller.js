@@ -39,7 +39,6 @@ angular.module('Bastion.content-hosts').controller('ContentHostsBulkErrataModalC
         $scope.table.errataFilterTerm = "";
         $scope.table.initialLoad = false;
         $scope.initialLoad = true;
-        $scope.remoteExecutionPresent = BastionConfig.remoteExecutionPresent;
         $scope.allHostsSelected = hostIds.allResultsSelected;
         $scope.hostToolingEnabled = BastionConfig.hostToolingEnabled;
         $scope.newHostDetailsUI = newHostDetailsUI;

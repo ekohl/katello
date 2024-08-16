@@ -109,8 +109,6 @@ describe('Controller: ContentHostErrataController', function() {
 
     it("can apply errata with remote execution", function() {
         // Removed the test to apply errata because this one now covers it with REX being the only way
-        $scope.remoteExecutionPresent = true;
-
         $scope.applySelected();
 
         expect($scope.errataActionFormValues.bulkHostIds).toEqual('{"included":{"ids":[' + host.id + ']}}');

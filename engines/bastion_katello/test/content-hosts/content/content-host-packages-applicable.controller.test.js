@@ -61,7 +61,6 @@ describe('Controller: ContentHostPackagesApplicableController', function() {
 
     it("performs default action as appropriate for rex", function() {
         spyOn($scope, 'performViaRemoteExecution');
-        $scope.remoteExecutionPresent = true;
         $scope.performRexUpdate();
 
         expect($scope.performViaRemoteExecution).toHaveBeenCalledWith('packageUpdate', $scope.getRemoteExecutionCommand(), false);

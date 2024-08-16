@@ -24,7 +24,6 @@ angular.module('Bastion.content-hosts').controller('ContentHostsBulkTracesContro
         tracesNutupane.enableSelectAllResults();
         tracesNutupane.primaryOnly = true;
         $scope.table = tracesNutupane.table;
-        $scope.remoteExecutionPresent = BastionConfig.remoteExecutionPresent;
 
         $scope.performViaRemoteExecution = function() {
             var traceids = _.map($scope.table.getSelected(), 'id');

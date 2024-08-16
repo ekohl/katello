@@ -18,7 +18,6 @@ angular.module('Bastion.content-hosts').controller('ContentHostPackagesInstalled
     function ($scope, $timeout, $window, HostPackage, translate, Nutupane, BastionConfig) {
         var packagesNutupane;
         $scope.controllerName = 'katello_host_installed_packages';
-        $scope.remoteExecutionPresent = BastionConfig.remoteExecutionPresent;
         $scope.hostToolingEnabled = BastionConfig.hostToolingEnabled;
 
         // Labels so breadcrumb strings can be translated

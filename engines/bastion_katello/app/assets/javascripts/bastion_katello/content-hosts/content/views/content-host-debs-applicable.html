@@ -25,7 +25,7 @@
             Upgrade Selected
           </button>
           <button uib-dropdown-toggle class="btn btn-default"
-                  ng-hide="!remoteExecutionPresent || denied('edit_hosts', contentHost)"
+                  ng-hide="denied('edit_hosts', contentHost)"
                   ng-disabled="working ||  table.numSelected === 0"
                   type="button" id="use-remote-execution">
             <span class="caret"></span>

@@ -7,11 +7,8 @@
 <div ng-if="host && host.hasContent()" ng-hide="denied('edit_hosts', host)">
   <div data-block="messages" ng-show="table.rows.length > 0">
     <p bst-alert="info" >
-      <span translate ng-show="remoteExecutionPresent">
+      <span translate>
         Only the Applications with a Helper can be restarted.
-      </span>
-      <span translate ng-show="!remoteExecutionPresent">
-        Remote execution plugin is required to be able to run any helpers.
       </span>
     </p>
   </div>
@@ -58,7 +55,7 @@
           <button class="btn btn-default" type="button"
                   translate
                   ng-hide="denied('edit_hosts', host)"
-                  ng-disabled="table.getSelected().length == 0 || !remoteExecutionPresent"
+                  ng-disabled="table.getSelected().length == 0"
                   ng-click="openModal()">
             Restart Selected
           </button>

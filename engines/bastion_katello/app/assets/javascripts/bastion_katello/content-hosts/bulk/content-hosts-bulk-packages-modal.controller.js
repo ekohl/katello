@@ -21,7 +21,6 @@ angular.module('Bastion.content-hosts').controller('ContentHostsBulkPackagesModa
     ['$scope', '$location', '$timeout', '$window', '$uibModalInstance', 'HostBulkAction', 'CurrentOrganization', 'translate', 'Notification', 'BastionConfig', 'hostIds',
     function ($scope, $location, $timeout, $window, $uibModalInstance, HostBulkAction, CurrentOrganization, translate, Notification, BastionConfig, hostIds) {
 
-        $scope.remoteExecutionPresent = BastionConfig.remoteExecutionPresent;
         $scope.hostToolingEnabled = BastionConfig.hostToolingEnabled;
 
         $scope.packageActionFormValues = {

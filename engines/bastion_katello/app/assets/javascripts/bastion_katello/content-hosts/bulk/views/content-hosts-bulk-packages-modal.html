@@ -31,7 +31,6 @@
         Update All Packages
       </button>
       <button uib-dropdown-toggle class="btn btn-default"
-              ng-show="remoteExecutionPresent"
               ng-disabled="(table.numSelected === 0) || !packageActionForm.$valid || content.confirm"
               type="button" id="update-all-use-remote-execution">
         <span class="caret"></span>
@@ -91,7 +90,6 @@
           Install
         </button>
         <button uib-dropdown-toggle class="btn btn-default"
-                ng-show="remoteExecutionPresent"
                 ng-disabled="(table.numSelected === 0) || !packageActionForm.$valid || content.confirm"
                 type="button" id="install-use-remote-execution">
           <span class="caret"></span>
@@ -112,7 +110,7 @@
           Update
         </button>
         <button uib-dropdown-toggle class="btn btn-default"
-                ng-hide="!remoteExecutionPresent || denied('edit_hosts')"
+                ng-hide="denied('edit_hosts')"
                 ng-disabled="(table.numSelected === 0) || !packageActionForm.$valid || content.confirm"
                 type="button" id="update-use-remote-execution">
           <span class="caret"></span>
@@ -132,7 +130,7 @@
           Remove
         </button>
         <button uib-dropdown-toggle class="btn btn-default"
-                ng-hide="!remoteExecutionPresent || denied('edit_hosts')"
+                ng-hide="denied('edit_hosts')"
                 ng-disabled="(table.numSelected === 0) || !packageActionForm.$valid || content.confirm"
                 type="button" id="remove-use-remote-execution">
           <span class="caret"></span>
